@@ -5,8 +5,9 @@ using UnityEngine;
 public class fireworks : MonoBehaviour
 {
     public Transform targetPosition;
+    public GameObject effectPrefab;
     public float moveSpeed = 5f;
-    
+
     private bool isMoving = false;
 
 
@@ -34,5 +35,24 @@ public class fireworks : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, endPosition.y, transform.position.z);
         isMoving = false;
+
+        Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        Debug.Log("てすと");
+        // effectPrefab.transform.localScale
+        SetScale(3f);
     }
+
+
+        //ここからスケール
+        private Vector3 initialScale;
+
+        private void Start()
+        {
+            initialScale = transform.localScale;
+        }
+
+        public void SetScale(float scale)
+        {
+            transform.localScale = initialScale * scale;
+        }
 }

@@ -39,20 +39,24 @@ public class fireworks : MonoBehaviour
         Instantiate(effectPrefab, transform.position, Quaternion.identity);
         Debug.Log("てすと");
         // effectPrefab.transform.localScale
-        SetScale(3f);
+        effectPrefab.transform.localPosition = Vector3.zero;
+
+        Vector3 initialScale;
+        initialScale = transform.localScale;
+        effectPrefab.transform.localScale = initialScale * 5f;
     }
 
 
-        //ここからスケール
-        private Vector3 initialScale;
+        // //ここからスケール
+        // private Vector3 initialScale;
 
-        private void Start()
-        {
-            initialScale = transform.localScale;
-        }
+        // private void Start()
+        // {
+        //     initialScale = transform.localScale;
+        // }
 
-        public void SetScale(float scale)
-        {
-            transform.localScale = initialScale * scale;
-        }
+        // public void SetScale(float scale)
+        // {
+        //     transform.localScale = initialScale * scale;
+        // }
 }

@@ -10,7 +10,21 @@ public class PieceManager : Singleton<PieceManager>
         selectedPiece = p;
     }
 
-    public Piece GetSelectedPiece(){
-        return selectedPiece;
+    public void RemovePiece(){
+        selectedPiece = null;
+    }
+
+    public bool GetSelectedPiece(out Piece sp)
+    {
+        if (selectedPiece != null)
+        {
+            sp = selectedPiece;
+            return true;
+        }
+        else
+        {
+            sp = null;
+            return false;
+        }
     }
 }

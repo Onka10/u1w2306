@@ -20,27 +20,38 @@ public class TileManager : Singleton<TileManager>
     public bool SetPieceInTile(int id, Piece p){
         // Debug.Log("idを変換:"+BM.GetCoordinatesFromId(id));
 
-        //隣接しないと置けない
-        if(! BM.CanPlacePiece(BM.GetCoordinatesFromId(id).row,BM.GetCoordinatesFromId(id).col,p)) return false;
+        //置けない判定
+        if(! BM.CanPlacePiece(id,p)) return false;
 
-        BM.PlacePiece(BM.GetCoordinatesFromId(id).row,BM.GetCoordinatesFromId(id).col,p);
+        BM.PlacePiece(id,p);
+        Debug.Log(id+"設置");
         return true;
         // tiles[i].SetPiece(p);
     }
 
     public Tile GetTile(int id){
-        return BM.GetTile(BM.GetCoordinatesFromId(id).row,BM.GetCoordinatesFromId(id).col);
+        return BM.GetTile(id);
         // return tiles[id];
     }
 
     public void ResetTile(){
         BM = new BoardManager(5);
-        BM.PrintBoard();
+        // BM.PrintBoard();
 
         // for(int i=0 ;i<tiles.Length;i++){
         //     tiles[i] = new Tile();
         // }
 
         loadTile.OnNext(Unit.Default);
+    }
+
+    //ボードマネージャーのスコアを計算して返す
+    public int GetThisScoreONBoard(){
+        int score=0;
+        PieceCount PC = BM.CountPieces();
+
+        //タスク1：色が3色以内
+        if(PC.GetColorVariety() < 3) score += 50;
+        return score;
     }
 }

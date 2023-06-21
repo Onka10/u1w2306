@@ -40,7 +40,7 @@ public class HandsView : MonoBehaviour
                 {
                     gameObjects[i].SetActive(true);
                     // Debug.Log(HandManager.I.Hand[i].color);
-                    img[i].color = HandManager.I.Hand[i].color;
+                    img[i].color = HandManager.I.Hand[i].GetColor();
                 }
                 else
                 {

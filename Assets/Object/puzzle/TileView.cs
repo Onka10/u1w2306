@@ -63,7 +63,7 @@ public class TileView : MonoBehaviour
 
         void ColorChange(bool IN){
             Tile t = TileManager.I.GetTile(id);
-            if(IN)    this.gameObject.GetComponent<Image>().color = t.piece.Value.color;
+            if(IN)    this.gameObject.GetComponent<Image>().color = t.piece.Value.GetColor();
             else           this.gameObject.GetComponent<Image>().color = Color.white;
         }
 }

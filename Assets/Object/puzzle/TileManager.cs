@@ -47,7 +47,9 @@ public class TileManager : Singleton<TileManager>
     public int GetThisScoreONBoard(){
         int score=0;
 
+        score += BM2.GetPieceCount() * 10;
         if(BM2.ExploreBoard().Count <= 3) score += 50;
+        if(BM2.HasChain(4)) score += 50;
 
         return score;
     }

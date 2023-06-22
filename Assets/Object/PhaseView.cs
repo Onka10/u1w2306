@@ -2,40 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UniRx;
+using DG.Tweening;
 
 public class PhaseView : MonoBehaviour
 {
+    [SerializeField] GameObject title;
+    [SerializeField] GameObject blend;
+    [SerializeField] GameObject Parent;
+
+    public Vector3 BeforePosition;//480/270
+    public Vector3 AfterPosition;
+    private Tweener moveTweener;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        PhaseManager.I.Phase
+        .Where(p => p == GamePhase.InGame)
+        .Subscribe(_ =>{
+            Hide_title();
+            Show_blend();
+        })
+        .AddTo(this);
+
+
+        PhaseManager.I.IsMoved
+        .Subscribe(m => Moved(m))
+        .AddTo(this);
     }
 
-    void Update()
-    {
+    void Moved(bool m){
+        if(m){
+            MoveTo(AfterPosition,0.2f);
+        }else{
+            MoveTo(BeforePosition,0.2f);
+        }
 
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     Debug.Log("es");
-        //     Hide();
-        // }
-
-        // if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     Debug.Log("es");
-        //     Show();
-        // }
-
-    
+        void MoveTo(Vector3 targetPosition,float moveDuration)
+        {
+            if (moveTweener != null && moveTweener.IsPlaying())
+            {
+                moveTweener.Kill();
+            }
+            
+            moveTweener = Parent.transform.DOMove(targetPosition, moveDuration).SetEase(Ease.Linear);
+        }
     }
 
-    [SerializeField] GameObject obj;
-
-    public void Show(){
-        obj.SetActive(true);
+    void Show_title(){
+        title.SetActive(true);
     }
 
-    public void Hide(){
-        obj.SetActive(false);
+    void Show_blend(){
+        blend.SetActive(true);
+    }
+
+    void Hide_title(){
+        title.SetActive(false);
     }
 }

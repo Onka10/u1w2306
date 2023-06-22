@@ -9,7 +9,6 @@ public class Kaributton : MonoBehaviour
     public void SelectHandPiece(int i){
         Piece p = HandManager.I.GetHandPiece(i);
         PieceManager.I.SelectPiece(p);
-        // Debug.Log("ピースを選択、赤");
     }
 
     //i版のマスに入れた

@@ -2,6 +2,20 @@ using UnityEngine;
 
 public class BoardUtility<T>
 {
+
+    public static int ConvertCoordinateToId(int row, int col,int size)
+    {
+        return row * size + col;
+    }
+
+    public static Vector2Int ConvertIdToCoordinate(int id, int size)
+    {
+        int row = id / size;
+        int col = id % size;
+        return new Vector2Int(row, col);
+    }
+
+
     public static (int row, int col) GetCoordinatesFromId(int id, T[][] board)
     {
         int currentId = 0;

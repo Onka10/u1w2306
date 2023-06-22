@@ -6,41 +6,39 @@ using System;
 
 public class TileManager : Singleton<TileManager>
 {
-    // [SerializeField] public Tile[] tiles = new Tile[13];
-
     public IObservable<Unit> OnLoadTile => loadTile;
     private readonly Subject<Unit> loadTile = new Subject<Unit>();
 
+    int size = 5;
     BoardManager BM;
+    BoardModel BM2;
 
     private void Start() {
         ResetTile();
     }
 
     public bool SetPieceInTile(int id, Piece p){
-        // Debug.Log("idを変換:"+BM.GetCoordinatesFromId(id));
+        //Set able判定
+        // if(! BM.CanPlacePiece(id)) return false;
 
-        //置けない判定
-        if(! BM.CanPlacePiece(id,p)) return false;
+        // BM.PlacePiece(id,p);
 
-        BM.PlacePiece(id,p);
-        Debug.Log(id+"設置");
-        return true;
-        // tiles[i].SetPiece(p);
+        int row = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).x;
+        int col = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).y;
+        return BM2.PlacePiece(row,col,p);
     }
 
     public Tile GetTile(int id){
-        return BM.GetTile(id);
-        // return tiles[id];
+        // return BM.GetTile(id);
+        int row = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).x;
+        int col = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).y;
+        return BM2.GetTile(row,col);
     }
 
     public void ResetTile(){
-        BM = new BoardManager(5);
-        // BM.PrintBoard();
+        // BM = new BoardManager();
 
-        // for(int i=0 ;i<tiles.Length;i++){
-        //     tiles[i] = new Tile();
-        // }
+        BM2 = new BoardModel(size);
 
         loadTile.OnNext(Unit.Default);
     }
@@ -48,10 +46,9 @@ public class TileManager : Singleton<TileManager>
     //ボードマネージャーのスコアを計算して返す
     public int GetThisScoreONBoard(){
         int score=0;
-        PieceCount PC = BM.CountPieces();
 
-        //タスク1：色が3色以内
-        if(PC.GetColorVariety() < 3) score += 50;
+        if(BM2.ExploreBoard().Count <= 3) score += 50;
+
         return score;
     }
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5692709971350284244}
-  - component: {fileID: 8373332594852609809}
   - component: {fileID: 5692709971350284245}
   - component: {fileID: 5692709971350284242}
   m_Layer: 0
@@ -40,22 +39,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8373332594852609809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692709971350284243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1084ed6dc306fb34d865a092d561468d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles:
-  - startColor: {r: 0, g: 0, b: 0, a: 0}
-    maxParticles: 0
-    scale: 0
 --- !u!198 &5692709971350284245
 ParticleSystem:
   m_ObjectHideFlags: 0

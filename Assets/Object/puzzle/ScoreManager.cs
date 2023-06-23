@@ -16,7 +16,9 @@ public class ScoreManager : Singleton<ScoreManager>
     }
 
     public void AddThisScore2TotalScore(){
-        _totalScore.Value += _thisScore.Value;
+        int score = _thisScore.Value;//個数のスコア
+
+        _totalScore.Value += score;
         _thisScore.Value = 0;
     }
 }

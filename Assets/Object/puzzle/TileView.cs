@@ -17,7 +17,7 @@ public class TileView : MonoBehaviour
 
         private System.Collections.IEnumerator ExecuteDelayedLog()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
 
             // TileManager.I.GetTile(id).isIn
             // .Subscribe(IN => ColorChange(IN))
@@ -26,33 +26,11 @@ public class TileView : MonoBehaviour
             // Debug.Log("初期化完了");
 
             TileManager.I.OnLoadTile
-            .Subscribe(_ =>    Initsub())
+            .Subscribe(_ =>Initsub())
             .AddTo(this);
 
             Initsub();
         }
-
-
-
-
-
-        // private void Start()
-        // {
-        //     StartCoroutine(ExecuteDelayedLog());
-        //     // Debug.Log("初期化完了");
-        // }
-
-        // private System.Collections.IEnumerator ExecuteDelayedLog()
-        // {
-        //     yield return new WaitForSeconds(1);
-
-        //     TileManager.I.OnLoadTile
-        //     .Subscribe(_ =>{
-        //         Init();
-        //         Debug.Log("初期化完了");
-        //     } )
-        //     .AddTo(this);
-        // }
 
         private void Initsub()
         {
@@ -64,6 +42,6 @@ public class TileView : MonoBehaviour
         void ColorChange(bool IN){
             Tile t = TileManager.I.GetTile(id);
             if(IN)    this.gameObject.GetComponent<Image>().color = t.piece.Value.GetColor();
-            else           this.gameObject.GetComponent<Image>().color = Color.white;
+            else      this.gameObject.GetComponent<Image>().color = Color.white;
         }
 }

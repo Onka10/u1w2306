@@ -5,7 +5,7 @@ using UniRx;
 
 public class launchplatform : MonoBehaviour
 {
-    [SerializeField] fireworks obj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class launchplatform : MonoBehaviour
     // Update is called once per frame
     void Fire()
     {
-        obj.Go();
+        // obj.Go();
     }
 }

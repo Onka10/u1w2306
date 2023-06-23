@@ -1,62 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class fireworks : MonoBehaviour
+[System.Serializable]
+public class ParticleData
 {
-    public Transform targetPosition;
-    public GameObject effectPrefab;
-    public float moveSpeed = 5f;
+    public Color startColor;
+    public int maxParticles;
+    public float scale;
+}
 
-    private bool isMoving = false;
+public class Fireworks : MonoBehaviour
+{
+    public ParticleData parentParticle;
+    public ParticleSystem[] childParticleSystems;
 
+    private ParticleSystem parentParticleSystem;
 
-    public void Go()
+    private void Start()
     {
-        StartCoroutine(MoveToTarget());
+        parentParticleSystem = GetComponent<ParticleSystem>();
+
+        // 親パーティクルのプロパティを設定する
+        SetParticleProperties(parentParticleSystem, parentParticle);
+
+        // 子パーティクルのプロパティを設定する
+        foreach (var childParticleSystem in childParticleSystems)
+        {
+            SetParticleProperties(childParticleSystem, parentParticle);
+        }
     }
 
-    private System.Collections.IEnumerator MoveToTarget()
+    public void SetParentParticleProperties(Color startColor, int maxParticles, float scale)
     {
-        isMoving = true;
+        parentParticle.startColor = startColor;
+        parentParticle.maxParticles = maxParticles;
+        parentParticle.scale = scale;
 
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = targetPosition.position;
+        UpdateParticleSystem(parentParticleSystem, parentParticle);
+    }
 
-        float elapsedTime = 0f;
-
-        while (elapsedTime < moveSpeed)
+    public void SetChildParticleProperties(int particleIndex, Color startColor, int maxParticles)
+    {
+        if (particleIndex < 0 || particleIndex >= childParticleSystems.Length)
         {
-            float newY = Mathf.Lerp(startPosition.y, endPosition.y, elapsedTime / moveSpeed);
-            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            Debug.LogError("Invalid particle index.");
+            return;
         }
 
-        transform.position = new Vector3(transform.position.x, endPosition.y, transform.position.z);
-        isMoving = false;
+        var particleData = new ParticleData
+        {
+            startColor = startColor,
+            maxParticles = maxParticles,
+            scale = parentParticle.scale
+        };
 
-        Instantiate(effectPrefab, transform.position, Quaternion.identity);
-        Debug.Log("てすと");
-        // effectPrefab.transform.localScale
-        effectPrefab.transform.localPosition = Vector3.zero;
-
-        Vector3 initialScale;
-        initialScale = transform.localScale;
-        effectPrefab.transform.localScale = initialScale * 5f;
+        UpdateParticleSystem(childParticleSystems[particleIndex], particleData);
     }
 
+    public void SetAllChildParticleProperties(Color startColor, int maxParticles)
+    {
+        foreach (var childParticleSystem in childParticleSystems)
+        {
+            var particleData = new ParticleData
+            {
+                startColor = startColor,
+                maxParticles = maxParticles,
+                scale = parentParticle.scale
+            };
 
-        // //ここからスケール
-        // private Vector3 initialScale;
+            UpdateParticleSystem(childParticleSystem, particleData);
+        }
+    }
 
-        // private void Start()
-        // {
-        //     initialScale = transform.localScale;
-        // }
+    private void SetParticleProperties(ParticleSystem particleSystem, ParticleData particleData)
+    {
+        var mainModule = particleSystem.main;
+        mainModule.startColor = particleData.startColor;
+        mainModule.maxParticles = particleData.maxParticles;
 
-        // public void SetScale(float scale)
-        // {
-        //     transform.localScale = initialScale * scale;
-        // }
+        particleSystem.transform.localScale = new Vector3(particleData.scale, particleData.scale, particleData.scale);
+    }
+
+    private void UpdateParticleSystem(ParticleSystem particleSystem, ParticleData particleData)
+    {
+        SetParticleProperties(particleSystem, particleData);
+    }
 }

@@ -64,6 +64,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9171305390612049190}
     m_Modifications:
+    - target: {fileID: 5293353436582880144, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293353436582880144, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293353436582880144, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5692709971350284243, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
       propertyPath: m_Name
       value: firework_Effect

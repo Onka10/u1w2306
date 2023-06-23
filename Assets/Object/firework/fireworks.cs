@@ -11,14 +11,11 @@ public class ParticleData
 public class Fireworks : MonoBehaviour
 {
     public ParticleData parentParticle;
+    [SerializeField] private ParticleSystem parentParticleSystem;
     public ParticleSystem[] childParticleSystems;
-
-    private ParticleSystem parentParticleSystem;
 
     private void Start()
     {
-        parentParticleSystem = GetComponent<ParticleSystem>();
-
         // 親パーティクルのプロパティを設定する
         SetParticleProperties(parentParticleSystem, parentParticle);
 

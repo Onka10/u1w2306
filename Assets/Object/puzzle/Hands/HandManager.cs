@@ -7,11 +7,10 @@ public class HandManager : Singleton<HandManager>
 {
         //購読される変数
         public IReactiveCollection<Piece> Hand => _hand;
-
-        //private
         private readonly ReactiveCollection<Piece> _hand = new ReactiveCollection<Piece>{};
 
         int now;
+        Piece selectedPiece;
 
 
         private void Start() {
@@ -28,20 +27,34 @@ public class HandManager : Singleton<HandManager>
             _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
         }
 
-        public Piece Remove(){
-            Piece p = _hand[now];
+        public void Remove(){
             _hand.RemoveAt(now);
             now = -1;
-            return p;
+            selectedPiece = null;
         }
 
         public void ReLoad(){
             _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
         }
 
-        public Piece GetHandPiece(int i){
+        public void GetHandPiece(int i){
             now = i;
-            return _hand[i];
+            selectedPiece = _hand[i];
+        }
+
+
+        public bool GetSelectedPiece(out Piece sp)
+        {
+            if (selectedPiece != null)
+            {
+                sp = selectedPiece;
+                return true;
+            }
+            else
+            {
+                sp = null;
+                return false;
+            }
         }
 
     

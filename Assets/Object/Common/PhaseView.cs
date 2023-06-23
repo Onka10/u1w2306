@@ -32,22 +32,25 @@ public class PhaseView : MonoBehaviour
         .AddTo(this);
     }
 
-    void Moved(bool m){
-        if(m){
-            MoveTo(AfterPosition,0.2f);
-        }else{
-            MoveTo(BeforePosition,0.2f);
+    void Moved(bool m)
+    {
+        if (m)
+        {
+            MoveTo(AfterPosition, 0.2f);
+        }
+        else
+        {
+            MoveTo(BeforePosition, 0.2f);
+        }
+    }
+    void MoveTo(Vector3 targetPosition, float moveDuration)
+    {
+        if (moveTweener != null && moveTweener.IsActive())
+        {
+            moveTweener.Kill();
         }
 
-        void MoveTo(Vector3 targetPosition,float moveDuration)
-        {
-            if (moveTweener != null && moveTweener.IsPlaying())
-            {
-                moveTweener.Kill();
-            }
-            
-            moveTweener = Parent.transform.DOMove(targetPosition, moveDuration).SetEase(Ease.Linear);
-        }
+        moveTweener = Parent.transform.DOMove(targetPosition, moveDuration).SetEase(Ease.Linear);
     }
 
     void Show_title(){

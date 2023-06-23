@@ -8,7 +8,7 @@ public class ParticleData
     public float scale;
 }
 
-public class Fireworks : MonoBehaviour
+public class FireWork : MonoBehaviour
 {
     public ParticleData parentParticle;
     [SerializeField] private ParticleSystem parentParticleSystem;

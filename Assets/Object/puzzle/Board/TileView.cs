@@ -6,8 +6,6 @@ using UniRx;
 
 public class TileView : MonoBehaviour
 {
-    // [SerializeField] Image image2;
-    // [SerializeField] Tile tile;
     [SerializeField] public int id;
 
         private void Start()

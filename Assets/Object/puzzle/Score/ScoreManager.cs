@@ -17,6 +17,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     public void AddThisScore2TotalScore(){
         int score = _thisScore.Value;//個数のスコア
+        score += TileManager.I.GetTaskScore();
 
         _totalScore.Value += score;
         _thisScore.Value = 0;

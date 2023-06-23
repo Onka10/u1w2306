@@ -17,6 +17,11 @@ public class HideButton : MonoBehaviour
             PM.IsMoved
             .Subscribe(m => Moved(m))
             .AddTo(this);
+
+            PhaseManager.I.IsAnimating
+            .Skip(1)
+            .Subscribe(a => this.gameObject.SetActive(!a))
+            .AddTo(this);
         }
 
         void Moved(bool m){

@@ -5,7 +5,6 @@ using UniRx;
 
 public class PhaseManager : Singleton<PhaseManager>
 {
-    // public static int MaxTownCount=4;
     public IReadOnlyReactiveProperty<GamePhase> Phase => _state;
     private readonly ReactiveProperty<GamePhase> _state = new ReactiveProperty<GamePhase>(global::GamePhase.Title);
 
@@ -15,6 +14,9 @@ public class PhaseManager : Singleton<PhaseManager>
     public IReadOnlyReactiveProperty<bool> IsMoved => _move;
     private readonly ReactiveProperty<bool> _move = new ReactiveProperty<bool>();
 
+    public IReadOnlyReactiveProperty<bool> IsAnimating => _isAnimating;
+    private readonly ReactiveProperty<bool> _isAnimating = new ReactiveProperty<bool>();
+
     
     public void Play(){
         _state.Value = GamePhase.InGame;
@@ -22,6 +24,10 @@ public class PhaseManager : Singleton<PhaseManager>
 
     public void MoveHide(){
         _move.Value  = _move.Value ? false : true;
+    }
+
+    public void InAnime(){
+        _isAnimating.Value  = _isAnimating.Value ? false : true;
     }
 
 }

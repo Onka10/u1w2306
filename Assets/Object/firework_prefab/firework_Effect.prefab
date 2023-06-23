@@ -9901,7 +9901,7 @@ PrefabInstance:
     - target: {fileID: 465372046457774885, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1945de22a937e184c9f5a7ad0e716d31, type: 2}
+      objectReference: {fileID: 2100000, guid: 2746ca836f24f7a41b0c7ba9f27d3b93, type: 2}
     - target: {fileID: 465372046457774887, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_Name
       value: Kira

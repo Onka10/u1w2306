@@ -43,14 +43,15 @@ public class TileManager : Singleton<TileManager>
         loadTile.OnNext(Unit.Default);
     }
 
-    //ボードマネージャーのスコアを計算して返す
+    //ボード上のスコアを計算して返す
     public int GetThisScoreONBoard(){
+        return BM2.GetPieceCount() * 10;
+    }
+
+    public int GEtTaskScore(){
         int score=0;
-
-        score += BM2.GetPieceCount() * 10;
-        if(BM2.ExploreBoard().Count <= 3) score += 50;
-        if(BM2.HasChain(4)) score += 50;
-
+            // if(BM2.ExploreBoard().Count <= 3) score += 50;
+             // if(BM2.HasChain(4)) score += 50;
         return score;
     }
 }

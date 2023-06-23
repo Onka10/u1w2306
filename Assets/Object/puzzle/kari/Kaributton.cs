@@ -11,12 +11,14 @@ public class Kaributton : MonoBehaviour
         PieceManager.I.SelectPiece(p);
     }
 
-    //i版のマスに入れた
+    //マスに入れた
     public void TileClick(TileView view){
         if(PieceManager.I.GetSelectedPiece(out var p)){
-
             //設置
             if(!TileManager.I.SetPieceInTile(view.id,p)) return;
+
+            SEManager.I.PieceSet();
+
             HandManager.I.Remove();
             PieceManager.I.RemovePiece();
 
@@ -33,6 +35,9 @@ public class Kaributton : MonoBehaviour
         ScoreManager.I.AddThisScore2TotalScore();
 
         //打ち上げの処理を発生
+
+        //SE
+        SEManager.I.Fire();
         
         //UIを消す
 

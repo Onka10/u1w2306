@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ExampleUsage : MonoBehaviour
 {
-    public Fireworks fireworks;
+    public FireWork fireworks;
     public int childParticleIndex;
     public Color newColor;
     public int newMaxParticles;

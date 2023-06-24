@@ -40,11 +40,12 @@ public class TileManager : Singleton<TileManager>
 
     public FireworkData GetData(){
         BoardCheck BC = new(BM);
+        Debug.Log(150*Chain());
+        return new FireworkData(BC.GetMostUsedColor(),150*Chain() ,MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f));
         
-        return new FireworkData(BC.GetMostUsedColor(),150*Chain(),BC.GetFilledTileRatio());
     
         int Chain(){
-            for(int i=1;i<6;i++){
+            for(int i=2;i<6;i++){
                 if(!BC.HasChain(i)){
                     return i-1;
                 } 

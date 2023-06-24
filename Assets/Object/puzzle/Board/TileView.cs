@@ -32,7 +32,7 @@ public class TileView : MonoBehaviour
 
         private void Initsub()
         {
-            TileManager.I.GetTile(id).isIn
+            TileManager.I.GetTile(id).IsIn
             .Subscribe(IN => ColorChange(IN))
             .AddTo(this);
         }

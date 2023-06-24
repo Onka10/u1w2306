@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Tile
 {
-    public IReadOnlyReactiveProperty<bool> isIn => _isIn;
+    public IReadOnlyReactiveProperty<bool> IsIn => _isIn;
     private readonly ReactiveProperty<bool> _isIn = new ReactiveProperty<bool>();
 
     public IReadOnlyReactiveProperty<Piece> piece => _piece;

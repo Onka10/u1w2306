@@ -44,7 +44,7 @@ public class BoardModel
 
         if (tile != null)
         {
-            if (!tile.isIn.Value)
+            if (!tile.IsIn.Value)
             {
                 tile.SetPiece(piece);
                 return true;
@@ -62,47 +62,12 @@ public class BoardModel
         return false;
     }
 
-    public void LogBoardState()
-    {
-        string log = "";
-
-        for (int col = 0; col < size; col++)
-        {
-            for (int row = 0; row < size; row++)
-            {
-                if (tiles[row, col].isIn.Value)
-                {
-                    log += "P ";
-                }
-                else
-                {
-                    log += "□ ";
-                }
-            }
-
-            Debug.Log(log);
-            log = ""; // 列ごとにログを出力した後、ログ変数をリセットする
-        }
+    public int GetSize(){
+        return size;
     }
 
-    public int GetPieceCount()
-    {
-        int count = 0;
-
-        for (int row = 0; row < size; row++)
-        {
-            for (int col = 0; col < size; col++)
-            {
-                Tile tile = GetTile(row, col);
-
-                if (tile != null && tile.isIn.Value && tile.piece.Value != null)
-                {
-                    count++;
-                }
-            }
-        }
-
-        return count;
+    public Tile[,] GetTile(){
+        return tiles;
     }
 
     public Dictionary<Color, int> ExploreBoard()
@@ -111,7 +76,7 @@ public class BoardModel
 
         foreach (Tile tile in tiles)
         {
-            if (tile != null && tile.isIn.Value)
+            if (tile != null && tile.IsIn.Value)
             {
                 Piece piece = tile.piece.Value;
 
@@ -133,109 +98,4 @@ public class BoardModel
 
         return pieceCount;
     }
-
-    public bool HasChain(int consecutiveCount)
-    {
-        int verticalMatchCount = GetVerticalMatchCount(consecutiveCount);
-        int horizontalMatchCount = GetHorizontalMatchCount(consecutiveCount);
-
-        return verticalMatchCount > 0 || horizontalMatchCount > 0;
-    }
-
-        public int GetVerticalMatchCount(int consecutiveCount)
-    {
-        int matchCount = 0;
-
-        for (int col = 0; col < size; col++)
-        {
-            int count = 1;
-            Color prevColor = Color.clear;
-
-            for (int row = 0; row < size; row++)
-            {
-                Tile tile = GetTile(row, col);
-
-                if (tile != null && tile.isIn.Value)
-                {
-                    Piece piece = tile.piece.Value;
-
-                    if (piece != null)
-                    {
-                        Color color = piece.GetColor();
-
-                        if (color == prevColor)
-                        {
-                            count++;
-                            if (count >= consecutiveCount)
-                            {
-                                matchCount++;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            count = 1;
-                            prevColor = color;
-                        }
-                    }
-                }
-                else
-                {
-                    count = 1;
-                    prevColor = Color.clear;
-                }
-            }
-        }
-
-        return matchCount;
-    }
-
-    public int GetHorizontalMatchCount(int consecutiveCount)
-    {
-        int matchCount = 0;
-
-        for (int row = 0; row < size; row++)
-        {
-            int count = 1;
-            Color prevColor = Color.clear;
-
-            for (int col = 0; col < size; col++)
-            {
-                Tile tile = GetTile(row, col);
-
-                if (tile != null && tile.isIn.Value)
-                {
-                    Piece piece = tile.piece.Value;
-
-                    if (piece != null)
-                    {
-                        Color color = piece.GetColor();
-
-                        if (color == prevColor)
-                        {
-                            count++;
-                            if (count >= consecutiveCount)
-                            {
-                                matchCount++;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            count = 1;
-                            prevColor = color;
-                        }
-                    }
-                }
-                else
-                {
-                    count = 1;
-                    prevColor = Color.clear;
-                }
-            }
-        }
-
-        return matchCount;
-    }
-
 }

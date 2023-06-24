@@ -11,15 +11,13 @@ public class ScoreManager : Singleton<ScoreManager>
     public IReadOnlyReactiveProperty<int> ThisScore => _thisScore;
     private readonly ReactiveProperty<int> _thisScore = new ReactiveProperty<int>(0);
 
-    public void ReLoadThisScore(){
-        _thisScore.Value = TileManager.I.GetThisScoreONBoard();
-    }
+    public void AddTotalScore(){
+        // int score = _thisScore.Value;//個数のスコア
+        // score += TileManager.I.GetTaskScore();
 
-    public void AddThisScore2TotalScore(){
-        int score = _thisScore.Value;//個数のスコア
-        score += TileManager.I.GetTaskScore();
+        // _totalScore.Value += score;
+        // _thisScore.Value = 0;
 
-        _totalScore.Value += score;
-        _thisScore.Value = 0;
+        _totalScore.Value += TileManager.I.GetThisScoreONBoard();
     }
 }

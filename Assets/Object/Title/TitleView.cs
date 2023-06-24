@@ -6,7 +6,11 @@ public class TitleView : MonoBehaviour
         void Start()
         {
             this.gameObject.GetComponent<Button>().OnClickAsObservable()
-            .Subscribe(_ => PhaseManager.I.Play())
+            .Where(_ => ! PhaseManager.I.IsMoved.Value)
+            .Subscribe(_ =>{
+                SEManager.I.Fire();
+                PhaseManager.I.Play();
+            })
             .AddTo(this);  
         }
 }

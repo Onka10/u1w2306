@@ -9,7 +9,7 @@ public class TileManager : Singleton<TileManager>
     public IObservable<Unit> OnLoadTile => loadTile;
     private readonly Subject<Unit> loadTile = new Subject<Unit>();
 
-    int size = 5;
+    readonly int size = 5;
     BoardModel BM;
 
     private void Start() {
@@ -35,13 +35,22 @@ public class TileManager : Singleton<TileManager>
 
     //ボード上のスコアを計算して返す
     public int GetThisScoreONBoard(){
-        return BM.GetPieceCount() * 10;
+        return new BoardCheck(BM).CountFilledTiles() * 10;
     }
 
-    public int GetTaskScore(){
-        int score=0;
-            // if(BM2.ExploreBoard().Count <= 3) score += 50;
-             // if(BM2.HasChain(4)) score += 50;
-        return score;
+    public FireworkData GetData(){
+        BoardCheck BC = new(BM);
+        
+        return new FireworkData(BC.GetMostUsedColor(),500*hoge(),BC.GetFilledTileRatio());
+    
+        int hoge(){
+            for(int i=1;i<6;i++){
+                if(!BC.HasChain(i)){
+                    return i-1;
+                } 
+            }
+
+            return 1;
+        }
     }
 }

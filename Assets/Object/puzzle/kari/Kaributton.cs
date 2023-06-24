@@ -21,13 +21,10 @@ public class Kaributton : MonoBehaviour
         if(HandManager.I.GetSelectedPiece(out var p)){
             //設置
             if(!TileManager.I.SetPieceInTile(view.id,p)) return;
-
+            //音鳴らす
             SEManager.I.PieceSet();
-
+            //ピースを消費
             HandManager.I.Remove();
-
-            //スコアプレビューを更新
-            ScoreManager.I.ReLoadThisScore();
 
             //次のピースをリロード
             HandManager.I.ReLoad();
@@ -46,11 +43,15 @@ public class Kaributton : MonoBehaviour
         //UIを消す
         PhaseManager.I.MoveHide();
         PhaseManager.I.InAnime();
+
+        //今回の合成結果を受け取る
+        FireworkData FD = TileManager.I.GetData();
         //打ち上げの処理を発生
+        LaunchManager.I.Fire(FD);
 
         //スコア計算
         await UniTask.Delay(TimeSpan.FromSeconds(1));
-        ScoreManager.I.AddThisScore2TotalScore();
+        ScoreManager.I.AddTotalScore();
         await UniTask.Delay(TimeSpan.FromSeconds(1));
 
         //UI初期化

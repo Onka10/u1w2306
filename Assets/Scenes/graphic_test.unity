@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: firework_Effect
       objectReference: {fileID: 0}
+    - target: {fileID: 5692709971350284243, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5692709971350284244, guid: e3cc9451e0c4de848aef0df892feedd4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1190,6 +1194,10 @@ PrefabInstance:
     - target: {fileID: 2487852031163115692, guid: a7aceb2ee0414764c865a06df9c6823d, type: 3}
       propertyPath: m_Name
       value: Star_FireWork
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487852031163115692, guid: a7aceb2ee0414764c865a06df9c6823d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7aceb2ee0414764c865a06df9c6823d, type: 3}
@@ -7538,6 +7546,10 @@ PrefabInstance:
     - target: {fileID: 8716303508121695579, guid: 71d27d1095092a64dbaab5cbe04b9320, type: 3}
       propertyPath: m_Name
       value: Bee_FireWork
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716303508121695579, guid: 71d27d1095092a64dbaab5cbe04b9320, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d27d1095092a64dbaab5cbe04b9320, type: 3}

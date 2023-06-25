@@ -32,6 +32,8 @@ public class FireWork : MonoBehaviour
         LaunchManager.I.G
         .Subscribe(_ => Die())
         .AddTo(this);
+
+        DestroySelfAfterDelay(7f);
     }
 
     public void SetParentParticleProperties(Color startColor, int maxParticles, float scale)
@@ -92,5 +94,10 @@ public class FireWork : MonoBehaviour
 
     void Die(){
         if(InBack)        Destroy(gameObject);
+    }
+
+    private void DestroySelfAfterDelay(float delay)
+    {
+        Destroy(gameObject, delay);
     }
 }

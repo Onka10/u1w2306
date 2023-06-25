@@ -41,7 +41,7 @@ public class TileManager : Singleton<TileManager>
 
     public FireworkData GetData(){
         BoardCheck BC = new(BM);
-        Debug.Log(BC.MixColorsByFrequency());
+        // Debug.Log(BC.MixColorsByFrequency());
         // return new FireworkData(BC.GetMostUsedColor(),150*Chain() ,MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f));
         return new FireworkData(BC.MixColorsByFrequency(),150*Chain() ,MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f));
         

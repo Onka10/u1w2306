@@ -34,8 +34,6 @@ public class ButtonManager : Singleton<ButtonManager>
     private async UniTask ExecuteGameEffects()
     {
         //前半
-        //SE
-        SEManager.I.Fire();
         //UIを消す
         PhaseManager.I.MoveHide();
         PhaseManager.I.InAnime();

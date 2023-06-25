@@ -5,9 +5,9 @@ public class BackLauncher : MonoBehaviour
 {
     public void LaunchFirework(FireworkData fireworkData, FireWork fireworksPrefab)
     {
-        // 打ち上げ座標の設定
+    // 打ち上げ座標の設定
         float x = Random.Range(-8f, 8f);
-        float y = transform.position.y; // クラスがアタッチされているオブジェクトのy座標を使用
+        float y = Random.Range(0f, 4f);// ランダムなy座標を範囲内で調整
         float z = transform.position.z; // クラスがアタッチされているオブジェクトのz座標を使用
         Vector3 launchPosition = new Vector3(x, y, z);
 

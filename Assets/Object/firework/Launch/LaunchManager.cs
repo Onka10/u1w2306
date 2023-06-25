@@ -7,6 +7,7 @@ using System;
 public class LaunchManager : Singleton<LaunchManager>
 {
     public FireWork fireworkPrefab;
+    // public List<FireWork> prefabs;
     public FrontLauncher frontLauncher;
     public List<BackLauncher> launchers;
     List<FireworkData> fireworkDataBase;
@@ -29,12 +30,14 @@ public class LaunchManager : Singleton<LaunchManager>
     {
         frontLauncher.LaunchFirework(fireworkData, fireworkPrefab);
         fireworkDataBase.Add(fireworkData);
+        SEManager.I.Fire();
         _allKill.OnNext(Unit.Default);
     }
 
     void BackFire(FireworkData fireworkData)
     {
         launchers[0].LaunchFirework(fireworkData, fireworkPrefab);
+        SEManager.I.Fire();
     }
 
     private async UniTask StartBackFireScheduler()

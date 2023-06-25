@@ -1,4 +1,5 @@
 using UnityEngine;
+using UniRx;
 
 [System.Serializable]
 public class ParticleData
@@ -14,6 +15,9 @@ public class FireWork : MonoBehaviour
     [SerializeField] private ParticleSystem parentParticleSystem;
     public ParticleSystem[] childParticleSystems;
 
+    //背後削除の判定
+    public bool InBack=false;
+
     private void Start()
     {
         // 親パーティクルのプロパティを設定する
@@ -24,6 +28,10 @@ public class FireWork : MonoBehaviour
         {
             SetParticleProperties(childParticleSystem, parentParticle);
         }
+
+        LaunchManager.I.G
+        .Subscribe(_ => Die())
+        .AddTo(this);
     }
 
     public void SetParentParticleProperties(Color startColor, int maxParticles, float scale)
@@ -80,5 +88,9 @@ public class FireWork : MonoBehaviour
     private void UpdateParticleSystem(ParticleSystem particleSystem, ParticleData particleData)
     {
         SetParticleProperties(particleSystem, particleData);
+    }
+
+    void Die(){
+        if(InBack)        Destroy(gameObject);
     }
 }

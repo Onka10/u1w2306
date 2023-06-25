@@ -55,6 +55,5 @@ public class ButtonManager : Singleton<ButtonManager>
         //UIをもどす
         PhaseManager.I.MoveHide();
         PhaseManager.I.InAnime();
-
     }
 }

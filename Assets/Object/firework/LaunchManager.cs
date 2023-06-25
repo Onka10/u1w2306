@@ -1,14 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LaunchManager : Singleton<LaunchManager>
 {
-    public FireWork fireworks;
+    public FireWork fireworkPrefab;
+    public FrontLauncher frontLauncher;
+    public List<BackLauncher> launchers;
+    List<FireworkData> fireworksData;
 
-    public void Fire(FireworkData FD){
-        fireworks.SetParentParticleProperties(FD.fireColor,FD.maxParticles,FD.scale);
-        fireworks.SetAllChildParticleProperties(FD.fireColor,FD.maxParticles);
+    private void Start()
+    {
+        fireworksData = new List<FireworkData>();
     }
 
+    public void Fire(FireworkData fireworkData)
+    {
+        frontLauncher.LaunchFirework(fireworkData, fireworkPrefab);
+        fireworksData.Add(fireworkData);
+
+        BackFire(fireworkData);
+    }
+
+    void BackFire(FireworkData fireworkData)
+    {
+        launchers[0].LaunchFirework(fireworkData, fireworkPrefab);
+    }
 }

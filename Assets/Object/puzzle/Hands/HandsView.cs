@@ -71,10 +71,9 @@ public class HandsView : MonoBehaviour
 
     private void Selected(int n){
         if(n < 0) return;
-        
+
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            Debug.Log("ee");
             gameObjects[i].GetComponent<Button>().image.color = i == n ? Color.yellow : Color.white;
         }
     }

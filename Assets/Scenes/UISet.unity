@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 107618627}
   - component: {fileID: 107618628}
   - component: {fileID: 107618629}
+  - component: {fileID: 107618630}
   m_Layer: 0
   m_Name: single
   m_TagString: Untagged
@@ -355,6 +356,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireworks: {fileID: 2007141515}
+--- !u!114 &107618630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107618622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425a5f5ff9c3810408ef94ba43a0e560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &206050287
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,19 +935,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 379361878}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 379361880}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &379361878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,19 +1192,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 393188093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 393188095}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &393188093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,19 +1327,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 397622228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 397622230}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &397622228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1487,18 +1464,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: SelectHandPiece
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1092743405}
         m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
         m_MethodName: Click
@@ -1632,19 +1597,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 443324343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 443324345}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &443324343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,18 +1734,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: SelectHandPiece
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1092743405}
         m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
         m_MethodName: Click
@@ -1926,19 +1867,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 555170942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 555170944}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 11
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &555170942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2073,19 +2002,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582956461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 582956463}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &582956461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,19 +2137,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 625530554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 625530556}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &625530554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2908,19 +2813,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 976226733}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 976226735}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &976226733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3064,7 +2957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1040620937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3557,19 +3450,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242233933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1242233935}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1242233933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4055,10 +3936,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1430663766}
-  - component: {fileID: 1430663767}
   - component: {fileID: 1430663768}
   m_Layer: 5
-  m_Name: hosi
+  m_Name: hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4089,18 +3969,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -91}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1430663767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430663765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d773b403a70b52f4eb8dd1c744e4e09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1430663768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,19 +4229,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554627729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1554627731}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 12
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1554627729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4644,8 +4500,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
+      - m_Target: {fileID: 107618630}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: Fire
         m_Mode: 1
         m_Arguments:
@@ -4872,19 +4728,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1872837028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1872837030}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1872837028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,18 +4865,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: SelectHandPiece
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1092743405}
         m_TargetAssemblyTypeName: SEManager, Assembly-CSharp
         m_MethodName: Click
@@ -5793,19 +5625,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2132422293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2132422295}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2132422293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5940,19 +5760,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2136722910}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430663767}
-        m_TargetAssemblyTypeName: Kaributton, Assembly-CSharp
-        m_MethodName: TileClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2136722912}
-          m_ObjectArgumentAssemblyTypeName: TileView, Assembly-CSharp
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2136722910
 MonoBehaviour:
   m_ObjectHideFlags: 0

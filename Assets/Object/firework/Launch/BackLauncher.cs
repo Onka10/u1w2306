@@ -17,5 +17,6 @@ public class BackLauncher : MonoBehaviour
         // 打ち上げ処理の実装（Fireworkコンポーネントにパラメータを設定）
         instantiatedFirework.SetParentParticleProperties(fireworkData.fireColor, fireworkData.maxParticles, fireworkData.scale);
         instantiatedFirework.SetAllChildParticleProperties(fireworkData.fireColor, fireworkData.maxParticles);
+        instantiatedFirework.InBack = true;
     }
 }

@@ -67,6 +67,29 @@ public class BoardCheck
         return mostUsedColor;
     }
 
+    public Color MixColorsByFrequency()
+    {
+        Dictionary<Color, int> pieceCount = board.ExploreBoard();
+
+        // 各色の出現回数の総和を計算
+        int totalFrequency = 0;
+        foreach (KeyValuePair<Color, int> pair in pieceCount)
+        {
+            totalFrequency += pair.Value;
+        }
+
+        // 各色を混ぜた結果の色を計算
+        Color mixedColor = Color.black;  // 初期値を黒とする
+        foreach (KeyValuePair<Color, int> pair in pieceCount)
+        {
+            // 出現回数に比例した割合で色を混ぜる
+            float ratio = (float)pair.Value / totalFrequency;
+            mixedColor += pair.Key * ratio;
+        }
+
+        return mixedColor;
+    }
+
     public bool HasChain(int consecutiveCount)
     {
         int verticalMatchCount = GetVerticalMatchCount(consecutiveCount);

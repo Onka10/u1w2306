@@ -17,9 +17,9 @@ public class HandManager : Singleton<HandManager>
     private void Start() {
         _hand.Clear(); // 一度手札をクリアする
 
-        _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
-        _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
-        _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
+        _hand.Add(new Piece(ColorsRandom.GetRandomColor3()));
+        _hand.Add(new Piece(ColorsRandom.GetRandomColor3()));
+        _hand.Add(new Piece(ColorsRandom.GetRandomColor3()));
 
         _now.Value = 0;
 
@@ -29,7 +29,7 @@ public class HandManager : Singleton<HandManager>
     public void SetHandPiece(){
         int now = _now.Value; //nowの更新に必要
         _hand.RemoveAt(_now.Value);
-        _hand.Add(new Piece(ColorsRandom.GetRandomColor5()));
+        _hand.Add(new Piece(ColorsRandom.GetRandomColor3()));
         _now.SetValueAndForceNotify(now);
     }
 

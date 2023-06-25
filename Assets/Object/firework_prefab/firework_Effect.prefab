@@ -49,12 +49,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4866,7 +4866,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9765,6 +9765,10 @@ PrefabInstance:
       value: Main
       objectReference: {fileID: 0}
     - target: {fileID: 583277281114423706, guid: a0d2b6fdbde88f94cac0ae4b0950c729, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 583277281114423706, guid: a0d2b6fdbde88f94cac0ae4b0950c729, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -9911,6 +9915,10 @@ PrefabInstance:
       value: Kira
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -10052,6 +10060,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 34d1554adc8ba5a4bb04e9038c33be28, type: 2}
+    - target: {fileID: 209075238369500579, guid: c84fcfe49b5bc564693a8c74b4942c80, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 209075238369500579, guid: c84fcfe49b5bc564693a8c74b4942c80, type: 3}
       propertyPath: scalingMode
       value: 0
@@ -10283,6 +10295,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2746ca836f24f7a41b0c7ba9f27d3b93, type: 2}
     - target: {fileID: 2049331996202518199, guid: 2646b3f1966daf44c8d7adce5cf68e18, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049331996202518199, guid: 2646b3f1966daf44c8d7adce5cf68e18, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -10380,6 +10396,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5692709971350284244}
     m_Modifications:
+    - target: {fileID: 8151510615190399796, guid: 031456576a6d87045b18136421d4e777, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8151510615190399796, guid: 031456576a6d87045b18136421d4e777, type: 3}
       propertyPath: scalingMode
       value: 0

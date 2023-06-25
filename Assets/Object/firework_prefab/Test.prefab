@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5692709971350284244}
-  - component: {fileID: 167553366178015180}
   - component: {fileID: 5692709971350284245}
   - component: {fileID: 5692709971350284242}
+  - component: {fileID: 6121140678882135568}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -40,31 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &167553366178015180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692709971350284243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37971b320429ad443b434e511058c381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentParticle:
-    startColor: {r: 0, g: 0, b: 0, a: 0}
-    maxParticles: 0
-    scale: 0
-  parentParticleSystem: {fileID: 5692709971350284245}
-  childParticleSystems:
-  - {fileID: 4476413350394575859}
-  - {fileID: 4476413350286546503}
-  - {fileID: 5123027191044865402}
-  - {fileID: 5293353436582880238}
-  - {fileID: 6012341895759759895}
-  - {fileID: 5613272241479463501}
-  - {fileID: 5692709971870985620}
 --- !u!198 &5692709971350284245
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -75,12 +50,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4844,6 +4819,32 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6121140678882135568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692709971350284243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37971b320429ad443b434e511058c381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentParticle:
+    startColor: {r: 0, g: 0, b: 0, a: 0}
+    maxParticles: 0
+    scale: 0
+  parentParticleSystem: {fileID: 5692709971350284245}
+  childParticleSystems:
+  - {fileID: 4476413350394575859}
+  - {fileID: 4476413350286546503}
+  - {fileID: 5123027191044865402}
+  - {fileID: 5293353436582880238}
+  - {fileID: 6012341895759759895}
+  - {fileID: 5613272241479463501}
+  - {fileID: 5692709971870985620}
+  InBack: 0
 --- !u!1 &5692709971870985619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,7 +4893,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -9791,10 +9792,6 @@ PrefabInstance:
       value: Main
       objectReference: {fileID: 0}
     - target: {fileID: 583277281114423706, guid: a0d2b6fdbde88f94cac0ae4b0950c729, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 583277281114423706, guid: a0d2b6fdbde88f94cac0ae4b0950c729, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -9946,10 +9943,6 @@ PrefabInstance:
       value: Kira
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -10096,10 +10089,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 34d1554adc8ba5a4bb04e9038c33be28, type: 2}
-    - target: {fileID: 209075238369500579, guid: c84fcfe49b5bc564693a8c74b4942c80, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 209075238369500579, guid: c84fcfe49b5bc564693a8c74b4942c80, type: 3}
       propertyPath: scalingMode
       value: 0
@@ -10336,10 +10325,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2746ca836f24f7a41b0c7ba9f27d3b93, type: 2}
     - target: {fileID: 2049331996202518199, guid: 2646b3f1966daf44c8d7adce5cf68e18, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049331996202518199, guid: 2646b3f1966daf44c8d7adce5cf68e18, type: 3}
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
@@ -10442,10 +10427,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5692709971350284244}
     m_Modifications:
-    - target: {fileID: 8151510615190399796, guid: 031456576a6d87045b18136421d4e777, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8151510615190399796, guid: 031456576a6d87045b18136421d4e777, type: 3}
       propertyPath: scalingMode
       value: 0

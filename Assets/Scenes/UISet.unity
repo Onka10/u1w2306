@@ -367,10 +367,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c415b2ba951c428f0b1b856b79a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireworkPrefab: {fileID: 167553366178015180, guid: fcd0301f793a09142aac6ca55977dadd, type: 3}
+  fireworkPrefab: {fileID: 6121140678882135568, guid: ffbac35f9b1cc8847bb50dc9ee5dd8e5, type: 3}
   frontLauncher: {fileID: 1064770716}
   launchers:
   - {fileID: 2140352946}
+  minDelay: 1
+  maxDelay: 5
 --- !u!1 &206050287
 GameObject:
   m_ObjectHideFlags: 0

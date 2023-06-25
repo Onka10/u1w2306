@@ -16,7 +16,7 @@ public class ImageBlinkAnimation : MonoBehaviour
         StartBlinkAnimation();
     }
 
-    private void StartBlinkAnimation()
+    public void StartBlinkAnimation()
     {
         blinkTweener = image.DOFade(blinkIntensity, blinkDuration).SetLoops(-1, LoopType.Yoyo);
     }

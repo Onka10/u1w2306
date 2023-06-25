@@ -74,7 +74,13 @@ public class HandsView : MonoBehaviour
 
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            gameObjects[i].GetComponent<Button>().image.color = i == n ? Color.yellow : Color.white;
+            if(i==n){
+                gameObjects[i].GetComponent<Button>().image.color = Color.yellow;
+                // gameObjects[i].GetComponent<ImageBlinkAnimation>().StartBlinkAnimation();
+            }else{
+                gameObjects[i].GetComponent<Button>().image.color = Color.white;
+                // gameObjects[i].GetComponent<ImageBlinkAnimation>().StopBlinkAnimation();
+            }
         }
     }
 

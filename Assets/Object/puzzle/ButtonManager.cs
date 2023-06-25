@@ -2,8 +2,7 @@ using UnityEngine;
 using Cysharp.Threading.Tasks;
 using System;
 
-//UI Presenter
-public class Kaributton : MonoBehaviour
+public class ButtonManager : Singleton<ButtonManager>
 {
     private void Start() {
         // GameObjectが破棄された時にキャンセルを飛ばすトークンを作成
@@ -13,21 +12,18 @@ public class Kaributton : MonoBehaviour
 
     //i番目のハンドを選択した
     public void SelectHandPiece(int i){
-        HandManager.I.GetHandPiece(i);
+        HandManager.I.SelectHandPiece(i);
     }
 
     //マスに入れた
-    public void TileClick(TileView view){
+    public void TileClick(int id){
         if(HandManager.I.GetSelectedPiece(out var p)){
             //設置
-            if(!TileManager.I.SetPieceInTile(view.id,p)) return;
+            if(!TileManager.I.SetPieceInTile(id,p)) return;
             //音鳴らす
             SEManager.I.PieceSet();
             //ピースを消費
-            HandManager.I.Remove();
-
-            //次のピースをリロード
-            HandManager.I.ReLoad();
+            HandManager.I.SetHandPiece();
         }
     }
 

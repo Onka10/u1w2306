@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
@@ -8,38 +7,33 @@ public class TileView : MonoBehaviour
 {
     [SerializeField] public int id;
 
-        private void Start()
-        {
-            StartCoroutine(ExecuteDelayedLog());
-        }
+    private void Start()
+    {
+        //ボタン操作
+        this.GetComponent<Button>().OnClickAsObservable()
+        .Subscribe(_=>ButtonManager.I.TileClick(id))
+        .AddTo(this);
 
-        private System.Collections.IEnumerator ExecuteDelayedLog()
-        {
-            yield return new WaitForSeconds(1.5f);
+        //タイルの中の変更
+        InitSub();
 
-            // TileManager.I.GetTile(id).isIn
-            // .Subscribe(IN => ColorChange(IN))
-            // .AddTo(this);
+        //ボードの更新
+        TileManager.I.OnLoadTile
+        .Subscribe(_ =>InitSub())
+        .AddTo(this);
+    }
 
-            // Debug.Log("初期化完了");
+    //ボードの中身の購読
+    private void InitSub()
+    {
+        TileManager.I.GetTile(id).IsIn
+        .Subscribe(IN => ColorChange(IN))
+        .AddTo(this);
+    }
 
-            TileManager.I.OnLoadTile
-            .Subscribe(_ =>Initsub())
-            .AddTo(this);
-
-            Initsub();
-        }
-
-        private void Initsub()
-        {
-            TileManager.I.GetTile(id).IsIn
-            .Subscribe(IN => ColorChange(IN))
-            .AddTo(this);
-        }
-
-        void ColorChange(bool IN){
-            Tile t = TileManager.I.GetTile(id);
-            if(IN)    this.gameObject.GetComponent<Image>().color = t.piece.Value.GetColor();
-            else      this.gameObject.GetComponent<Image>().color = Color.white;
-        }
+    void ColorChange(bool IN){
+        Tile t = TileManager.I.GetTile(id);
+        if(IN)    this.gameObject.GetComponent<Image>().color = t.piece.Value.GetColor();
+        else      this.gameObject.GetComponent<Image>().color = Color.white;
+    }
 }

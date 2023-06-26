@@ -4,6 +4,7 @@ using UniRx;
 public class TitleView : MonoBehaviour
 {
     [SerializeField] Button StartButton;
+    [SerializeField] Image  startImage;
     [SerializeField] Button CreditButton;
     [SerializeField] GameObject CreditObject;
 
@@ -16,6 +17,11 @@ public class TitleView : MonoBehaviour
             PhaseManager.I.Play();
         })
         .AddTo(this);  
+
+        BlinkAnimation<Image> blinkAnimation = new BlinkAnimation<Image>(startImage);
+        // 点滅アニメーションを開始（周期: 0.5秒、明るさ: 0.5）
+        blinkAnimation.StartBlinkAnimation(1.5f, 0.3f);
+
 
         CreditButton.OnClickAsObservable()
         .Subscribe(_ => CreditObject.SetActive(true))

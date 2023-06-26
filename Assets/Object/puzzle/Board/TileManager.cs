@@ -9,6 +9,9 @@ public class TileManager : Singleton<TileManager>
     public IObservable<Unit> OnLoadTile => loadTile;
     private readonly Subject<Unit> loadTile = new Subject<Unit>();
 
+    public IReadOnlyReactiveProperty<int> OnPieceCount => _onPieceCount;
+    private readonly ReactiveProperty<int> _onPieceCount = new ReactiveProperty<int>(0);
+
     readonly int size = 5;
     BoardModel BM;
 
@@ -20,7 +23,12 @@ public class TileManager : Singleton<TileManager>
     public bool SetPieceInTile(int id, Piece p){
         int row = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).x;
         int col = BoardUtility<Tile>.ConvertIdToCoordinate(id,size).y;
-        return BM.PlacePiece(row,col,p);
+        if(BM.PlacePiece(row,col,p)){
+            _onPieceCount.Value = new BoardCheck(BM).CountFilledTiles();
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public Tile GetTile(int id){
@@ -31,6 +39,7 @@ public class TileManager : Singleton<TileManager>
 
     public void ResetTile(){
         BM = new BoardModel(size);
+        _onPieceCount.Value = 0;
         loadTile.OnNext(Unit.Default);
     }
 

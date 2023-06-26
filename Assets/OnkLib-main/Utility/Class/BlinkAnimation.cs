@@ -35,25 +35,6 @@ public class BlinkAnimation<T> where T : Graphic
     }
 }
 
-public class BlinkAnimationExample : MonoBehaviour
-{
-    private BlinkAnimation<Image> blinkAnimation;
-
-    private void Start()
-    {
-        Image image = GetComponent<Image>();
-        blinkAnimation = new BlinkAnimation<Image>(image);
-
-        // 点滅アニメーションを開始（周期: 0.5秒、明るさ: 0.5）
-        blinkAnimation.StartBlinkAnimation(0.5f, 0.5f);
-    }
-
-    private void OnDestroy()
-    {
-        blinkAnimation.StopBlinkAnimation();
-    }
-}
-
 
 //使用例
     // private void Start()

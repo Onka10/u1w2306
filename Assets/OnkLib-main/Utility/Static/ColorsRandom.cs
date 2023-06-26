@@ -4,7 +4,7 @@ public static class ColorsRandom
 {
     public static Color GetRandomColor3()
     {
-        Color[] colors = { Color.red, Color.blue, Color.yellow };
+        Color[] colors = { Color.red, Color.blue, Color.green };
 
         int randomIndex = Random.Range(0, colors.Length);
         return colors[randomIndex];

@@ -15,8 +15,8 @@ public class BackLauncher : MonoBehaviour
         FireWork instantiatedFirework = Instantiate(fireworksPrefab, launchPosition, Quaternion.identity);
 
         // 打ち上げ処理の実装（Fireworkコンポーネントにパラメータを設定）
-        instantiatedFirework.SetParentParticleProperties(fireworkData.fireColor, fireworkData.maxParticles, fireworkData.scale);
-        instantiatedFirework.SetAllChildParticleProperties(fireworkData.fireColor, fireworkData.maxParticles);
+        instantiatedFirework.SetParentParticle(fireworkData.fireColor, fireworkData.maxParticles, fireworkData.scale);
+        instantiatedFirework.SetAllChildParticle(fireworkData.fireColor, fireworkData.maxParticles);
         instantiatedFirework.InBack = true;
     }
 }

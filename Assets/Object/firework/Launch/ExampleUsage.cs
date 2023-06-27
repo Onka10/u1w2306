@@ -18,8 +18,8 @@ public class ExampleUsage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // fireworks.SetAllParticleProperties(newColor, newMaxParticles, newScale);
-            fireworks.SetParentParticleProperties(Color.red,500,0.5f);
-            fireworks.SetAllChildParticleProperties(Color.red,500);
+            fireworks.SetParentParticle(Color.red,500,0.5f);
+            fireworks.SetAllChildParticle(Color.red,500);
         }
     }
 }

@@ -50,9 +50,12 @@ public class TileManager : Singleton<TileManager>
 
     public FireworkData GetData(){
         BoardCheck BC = new(BM);
-        // Debug.Log(BC.MixColorsByFrequency());
-        // return new FireworkData(BC.GetMostUsedColor(),150*Chain() ,MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f));
-        return new FireworkData(BC.MixColorsByFrequency(),150*Chain() ,MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f));
+
+        Color color = BC.MixColorsByFrequency();
+        int part = 150*Chain();
+        float scale = MathUtils.MapPercentageToValue(BC.GetFilledTileRatio(),0.35f,0.7f);
+
+        return new FireworkData(FireworkType.Normal,color,part,scale);
         
     
         int Chain(){
@@ -64,5 +67,12 @@ public class TileManager : Singleton<TileManager>
 
             return 1;
         }
+    }
+
+    public void hoge(){
+        BoardInspector BI = new(BM);
+        // BI.InspectTiles3();
+        BoardCheck BC = new(BM);
+        Debug.Log(BC.AreAllTilesSameColor(FireworkTypeManager.I.getTest())); 
     }
 }

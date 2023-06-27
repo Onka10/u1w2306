@@ -1,17 +1,10 @@
 using UnityEngine;
 using UniRx;
 
-[System.Serializable]
-public class ParticleData
-{
-    public Color startColor;
-    public int maxParticles;
-    public float scale;
-}
 
 public class FireWork : MonoBehaviour
 {
-    public ParticleData parentParticle;
+    public FireworkData parentParticle;
     [SerializeField] private ParticleSystem parentParticleSystem;
     public ParticleSystem[] childParticleSystems;
 
@@ -34,7 +27,7 @@ public class FireWork : MonoBehaviour
 
     public void SetParentParticle(Color startColor, int maxParticles, float scale)
     {
-        parentParticle.startColor = startColor;
+        parentParticle.fireColor = startColor;
         parentParticle.maxParticles = maxParticles;
         parentParticle.scale = scale;
 
@@ -42,31 +35,13 @@ public class FireWork : MonoBehaviour
         SetParticleScale(parentParticleSystem, parentParticle);
     }
 
-    // public void SetChildParticle(int particleIndex, Color startColor, int maxParticles)
-    // {
-    //     if (particleIndex < 0 || particleIndex >= childParticleSystems.Length)
-    //     {
-    //         Debug.LogError("Invalid particle index.");
-    //         return;
-    //     }
-
-    //     var particleData = new ParticleData
-    //     {
-    //         startColor = startColor,
-    //         maxParticles = maxParticles,
-    //         scale = parentParticle.scale
-    //     };
-
-    //     SetParticleProperties(childParticleSystems[particleIndex], particleData);
-    // }
-
     public void SetAllChildParticle(Color startColor, int maxParticles)
     {
         foreach (var childParticleSystem in childParticleSystems)
         {
-            var particleData = new ParticleData
+            var particleData = new FireworkData
             {
-                startColor = startColor,
+                fireColor = startColor,
                 maxParticles = maxParticles,
                 scale = parentParticle.scale
             };
@@ -75,14 +50,14 @@ public class FireWork : MonoBehaviour
         }
     }
 
-    private void SetParticleProperties(ParticleSystem particleSystem, ParticleData particleData)
+    private void SetParticleProperties(ParticleSystem particleSystem, FireworkData particleData)
     {
         var mainModule = particleSystem.main;
-        mainModule.startColor = particleData.startColor;
+        mainModule.startColor = particleData.fireColor;
         mainModule.maxParticles = particleData.maxParticles;
     }
 
-    private void SetParticleScale(ParticleSystem particleSystem, ParticleData particleData)
+    private void SetParticleScale(ParticleSystem particleSystem, FireworkData particleData)
     {
         particleSystem.transform.localScale = new Vector3(particleData.scale, particleData.scale, particleData.scale);
     }

@@ -33,6 +33,9 @@ public class ButtonManager : Singleton<ButtonManager>
 
     private async UniTask ExecuteGameEffects()
     {
+        //test
+        TileManager.I.hoge();
+
         //前半
         //UIを消す
         PhaseManager.I.MoveHide();
@@ -45,7 +48,7 @@ public class ButtonManager : Singleton<ButtonManager>
 
         //スコア計算
         await UniTask.Delay(TimeSpan.FromSeconds(1));
-        ScoreManager.I.AddTotalScore();
+        ScoreManager.I.AddTotalScoreFromThis();
         await UniTask.Delay(TimeSpan.FromSeconds(1));
 
         //UI初期化
@@ -53,5 +56,8 @@ public class ButtonManager : Singleton<ButtonManager>
         //UIをもどす
         PhaseManager.I.MoveHide();
         PhaseManager.I.InAnime();
+
+        //ライブラリ追加
+        LaunchManager.I.AddBase(FD);
     }
 }

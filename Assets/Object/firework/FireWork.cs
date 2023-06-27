@@ -29,41 +29,38 @@ public class FireWork : MonoBehaviour
             SetParticleProperties(childParticleSystem, parentParticle);
         }
 
-        LaunchManager.I.G
-        .Subscribe(_ => Die())
-        .AddTo(this);
-
         DestroySelfAfterDelay(7f);
     }
 
-    public void SetParentParticleProperties(Color startColor, int maxParticles, float scale)
+    public void SetParentParticle(Color startColor, int maxParticles, float scale)
     {
         parentParticle.startColor = startColor;
         parentParticle.maxParticles = maxParticles;
         parentParticle.scale = scale;
 
-        UpdateParticleSystem(parentParticleSystem, parentParticle);
+        SetParticleProperties(parentParticleSystem, parentParticle);
+        SetParticleScale(parentParticleSystem, parentParticle);
     }
 
-    public void SetChildParticleProperties(int particleIndex, Color startColor, int maxParticles)
-    {
-        if (particleIndex < 0 || particleIndex >= childParticleSystems.Length)
-        {
-            Debug.LogError("Invalid particle index.");
-            return;
-        }
+    // public void SetChildParticle(int particleIndex, Color startColor, int maxParticles)
+    // {
+    //     if (particleIndex < 0 || particleIndex >= childParticleSystems.Length)
+    //     {
+    //         Debug.LogError("Invalid particle index.");
+    //         return;
+    //     }
 
-        var particleData = new ParticleData
-        {
-            startColor = startColor,
-            maxParticles = maxParticles,
-            scale = parentParticle.scale
-        };
+    //     var particleData = new ParticleData
+    //     {
+    //         startColor = startColor,
+    //         maxParticles = maxParticles,
+    //         scale = parentParticle.scale
+    //     };
 
-        UpdateParticleSystem(childParticleSystems[particleIndex], particleData);
-    }
+    //     SetParticleProperties(childParticleSystems[particleIndex], particleData);
+    // }
 
-    public void SetAllChildParticleProperties(Color startColor, int maxParticles)
+    public void SetAllChildParticle(Color startColor, int maxParticles)
     {
         foreach (var childParticleSystem in childParticleSystems)
         {
@@ -74,7 +71,7 @@ public class FireWork : MonoBehaviour
                 scale = parentParticle.scale
             };
 
-            UpdateParticleSystem(childParticleSystem, particleData);
+            SetParticleProperties(childParticleSystem, particleData);
         }
     }
 
@@ -83,17 +80,11 @@ public class FireWork : MonoBehaviour
         var mainModule = particleSystem.main;
         mainModule.startColor = particleData.startColor;
         mainModule.maxParticles = particleData.maxParticles;
-
-        particleSystem.transform.localScale = new Vector3(particleData.scale, particleData.scale, particleData.scale);
     }
 
-    private void UpdateParticleSystem(ParticleSystem particleSystem, ParticleData particleData)
+    private void SetParticleScale(ParticleSystem particleSystem, ParticleData particleData)
     {
-        SetParticleProperties(particleSystem, particleData);
-    }
-
-    void Die(){
-        if(InBack)        Destroy(gameObject);
+        particleSystem.transform.localScale = new Vector3(particleData.scale, particleData.scale, particleData.scale);
     }
 
     private void DestroySelfAfterDelay(float delay)

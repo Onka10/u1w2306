@@ -19,9 +19,15 @@ public class PhaseView : MonoBehaviour
     void Start()
     {
         PhaseManager.I.Phase
-        .Where(p => p == GamePhase.InGame)
+        .Where(p => p == GamePhase.Road)
         .Subscribe(_ =>{
             Hide_title();
+        })
+        .AddTo(this);
+
+        PhaseManager.I.Phase
+        .Where(p => p == GamePhase.InGame)
+        .Subscribe(_ =>{
             Show_blend();
         })
         .AddTo(this);
@@ -51,10 +57,6 @@ public class PhaseView : MonoBehaviour
         }
 
         moveTweener = Parent.transform.DOMove(targetPosition, moveDuration).SetEase(Ease.Linear);
-    }
-
-    void Show_title(){
-        title.SetActive(true);
     }
 
     void Show_blend(){

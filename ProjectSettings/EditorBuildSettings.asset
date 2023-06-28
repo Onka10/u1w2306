@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TandMandRand.unity
-    guid: 71c83878c8fad6d4497a1122120ca8ff
+    path: Assets/Scenes/Main.unity
+    guid: 229ba16a7fd74e54193fd2d10ef37b1e
   m_configObjects: {}

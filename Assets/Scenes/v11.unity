@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96331372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -408,6 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501a6d03238fb514c9b1b4b38b982b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tran: {fileID: 2015881640}
 --- !u!114 &107618630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,7 +2830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &815394360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3342,7 +3343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1040620937
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6077,7 +6078,7 @@ Transform:
   m_GameObject: {fileID: 2015881640}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 8.48}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.232934, y: 1, z: 1.27876}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 628717393}
@@ -6117,7 +6118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0928d79f9a37fc44dbddfa726efda691, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

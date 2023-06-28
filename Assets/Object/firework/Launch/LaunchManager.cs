@@ -6,7 +6,7 @@ using System;
 
 public class LaunchManager : Singleton<LaunchManager>
 {
-    public FireWork fireworkPrefab;
+    // public FireWork fireworkPrefab;
     // public List<FireWork> prefabs;
     public FrontLauncher frontLauncher;
     public List<BackLauncher> launchers;
@@ -28,16 +28,21 @@ public class LaunchManager : Singleton<LaunchManager>
 
     public void Fire(FireworkData fireworkData)
     {
-        frontLauncher.LaunchFirework(fireworkData, fireworkPrefab);
-        fireworkDataBase.Add(fireworkData);
+        frontLauncher.LaunchFirework(fireworkData, FireworksFactory.I.GetFireworkPrefabs(fireworkData.FWtype));
         SEManager.I.Fire();
         _allKill.OnNext(Unit.Default);
     }
 
+    //ライブラリ追加のタイミングをずらす
+    public void AddBase(FireworkData fireworkData){
+        fireworkDataBase.Add(fireworkData);
+    }
+
     void BackFire(FireworkData fireworkData)
     {
-        launchers[0].LaunchFirework(fireworkData, fireworkPrefab);
+        launchers[0].LaunchFirework(fireworkData, FireworksFactory.I.GetFireworkPrefabs(fireworkData.FWtype));
         SEManager.I.Fire();
+        ScoreManager.I.AddTotalScoreFromBack();
     }
 
     private async UniTask StartBackFireScheduler()

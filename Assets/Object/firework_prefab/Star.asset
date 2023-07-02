@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: "\u82B1\u706B"
   type: 2
-  prefab: {fileID: 6471474523265300538, guid: 2e0796ddd6608b94a923a917d2e67cf5, type: 3}
+  prefab: {fileID: 1801024617110664259, guid: 03325fe73a1d1ff4a9f845aa0da44c99, type: 3}

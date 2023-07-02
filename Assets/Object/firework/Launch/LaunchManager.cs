@@ -26,9 +26,9 @@ public class LaunchManager : Singleton<LaunchManager>
         StartBackFireScheduler().Forget();
     }
 
-    public void Fire(FireworkData fireworkData)
+    public void Fire(FireworkData fireworkData,FireWork prefab)
     {
-        frontLauncher.LaunchFirework(fireworkData, FireworksFactory.I.GetFireworkPrefabs(fireworkData.FWtype));
+        frontLauncher.LaunchFirework(fireworkData, prefab);
         SEManager.I.Fire();
         _allKill.OnNext(Unit.Default);
     }
@@ -38,9 +38,9 @@ public class LaunchManager : Singleton<LaunchManager>
         fireworkDataBase.Add(fireworkData);
     }
 
-    void BackFire(FireworkData fireworkData)
+    void BackFire(FireworkData fireworkData,FireWork prefab)
     {
-        launchers[0].LaunchFirework(fireworkData, FireworksFactory.I.GetFireworkPrefabs(fireworkData.FWtype));
+        launchers[0].LaunchFirework(fireworkData, prefab);
         SEManager.I.Fire();
         ScoreManager.I.AddTotalScoreFromBack();
     }
@@ -57,7 +57,7 @@ public class LaunchManager : Singleton<LaunchManager>
             if (fireworkDataBase.Count > 0)
             {
                 int index = UnityEngine.Random.Range(0,fireworkDataBase.Count);
-                BackFire(fireworkDataBase[index]);
+                BackFire(fireworkDataBase[index],FWSetManager.I.GetFireworkPrefabs(fireworkDataBase[index].FWtype));
             }
         }
     }

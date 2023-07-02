@@ -42,7 +42,7 @@ public class FWTypeManager : Singleton<FWTypeManager>
             { false, false, true, false, false },
             { false, false, true, false, false },
             { true, true, false, true, true },
-            { false, false, true, true, false },
+            { false, false, true, false, false },
             { false, false, true, false, false },
         };
     }
@@ -60,6 +60,6 @@ public class FWTypeManager : Singleton<FWTypeManager>
     }
 
     public bool[,] GetBee2(){
-        return bee1;
+        return bee2;
     }
 }

@@ -33,10 +33,6 @@ public class ButtonManager : Singleton<ButtonManager>
 
     private async UniTask ExecuteGameEffects()
     {
-        //test
-        TileManager.I.hoge();
-
-        //前半
         //UIを消す
         PhaseManager.I.MoveHide();
         PhaseManager.I.InAnime();
@@ -44,7 +40,7 @@ public class ButtonManager : Singleton<ButtonManager>
         //今回の合成結果を受け取る
         FireworkData FD = TileManager.I.GetData();
         //打ち上げの処理を発生
-        LaunchManager.I.Fire(FD);
+        LaunchManager.I.Fire(FD,FWSetManager.I.GetFireworkPrefabs(FD.FWtype));
 
         //スコア計算
         await UniTask.Delay(TimeSpan.FromSeconds(1));

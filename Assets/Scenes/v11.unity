@@ -336,8 +336,8 @@ GameObject:
   - component: {fileID: 107618628}
   - component: {fileID: 107618630}
   - component: {fileID: 107618631}
-  - component: {fileID: 107618632}
   - component: {fileID: 107618633}
+  - component: {fileID: 107618632}
   m_Layer: 0
   m_Name: single
   m_TagString: Untagged
@@ -447,11 +447,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 107618622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19135ff0ea4013c4f9ba58d2a4ec809e, type: 3}
+  m_Script: {fileID: 11500000, guid: edfb2b1e3ec388146ab72af3be4892ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireworkPrefab: {fileID: 6471474523265300538, guid: 2e0796ddd6608b94a923a917d2e67cf5, type: 3}
-  prefabs: []
 --- !u!114 &107618633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,9 +459,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 107618622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c55ca2c74ef4f74990b9ba29fc16bfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 5983a355d6546944eb01d32409226536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireworkPrefab: {fileID: 11400000, guid: f028b68d98e78134190fcde939b0a648, type: 2}
+  prefabs:
+  - {fileID: 11400000, guid: 017cea70d45d89a488bdf5f507a94981, type: 2}
 --- !u!1 &146621481
 GameObject:
   m_ObjectHideFlags: 0

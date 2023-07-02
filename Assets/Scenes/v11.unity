@@ -465,6 +465,7 @@ MonoBehaviour:
   fireworkPrefab: {fileID: 11400000, guid: f028b68d98e78134190fcde939b0a648, type: 2}
   prefabs:
   - {fileID: 11400000, guid: 017cea70d45d89a488bdf5f507a94981, type: 2}
+  - {fileID: 11400000, guid: a632bfe249d8baf43ab166b548dc8f3d, type: 2}
 --- !u!1 &146621481
 GameObject:
   m_ObjectHideFlags: 0

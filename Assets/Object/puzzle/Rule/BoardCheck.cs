@@ -206,8 +206,8 @@ public class BoardCheck
             return false; // サイズが異なる場合は偽を返す
         }
 
-        Dictionary<Color, int> pieceCount = board.ExploreBoard();
-        List<(int, int)> filledPositions = GetFilledPositions(filledTiles);
+        // Dictionary<Color, int> pieceCount = board.ExploreBoard();
+        // List<(int, int)> filledPositions = GetFilledPositions(filledTiles);
 
         // return AreTilesSameColor(filledPositions);
         return AreTilesFilled(filledTiles);
@@ -239,18 +239,30 @@ public class BoardCheck
         int rows = filledTiles.GetLength(0);
         int cols = filledTiles.GetLength(1);
 
-        List<(int, int)> filledPositions = GetFilledPositions(filledTiles);
-
-        foreach ((int row, int col) in filledPositions)
+        for (int row = 0; row < rows; row++)
         {
-            Tile tile = board.GetTile(row, col);
-            if (tile == null || tile.piece.Value == null)
+            for (int col = 0; col < cols; col++)
             {
-                return false; // 埋まっていない場合は偽を返す
+                if (filledTiles[row, col])
+                {
+                    Tile tile = board.GetTile(row, col);
+                    if (tile == null || tile.piece.Value == null)
+                    {
+                        return false; // タイルが存在しない場合は偽を返す
+                    }
+                }
+                else
+                {
+                    Tile tile = board.GetTile(row, col);
+                    if (tile != null && tile.piece.Value != null)
+                    {
+                        return false; // タイルが存在する場合は偽を返す
+                    }
+                }
             }
         }
 
-        return true;
+        return true; // すべてのマスが条件を満たしている場合は真を返す
     }
 
 

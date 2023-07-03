@@ -4831,10 +4831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37971b320429ad443b434e511058c381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentParticle:
-    startColor: {r: 0, g: 0, b: 0, a: 0}
-    maxParticles: 0
-    scale: 0
   parentParticleSystem: {fileID: 5692709971350284245}
   childParticleSystems:
   - {fileID: 4476413350394575859}
@@ -9888,15 +9884,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774884, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774884, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774884, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774884, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9972,7 +9968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -9980,7 +9976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.05
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 465372046457774938, guid: ff3b732ea5d1cc94abb3db20ce4c1f13, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar

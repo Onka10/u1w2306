@@ -26,7 +26,6 @@ public class BackLauncher : MonoBehaviour
                 await UniTask.Delay((int)(delay * 1000));
 
                 //打ち上げ処理
-                // Debug.Log("うちあげ"+id);
                 int index = UnityEngine.Random.Range(0,launchManager.fireworkDataBase.Count);
                 LaunchFirework(launchManager.fireworkDataBase[index],FWSetManager.I.GetFireworkPrefabs(launchManager.fireworkDataBase[index].FWtype));
                 SEManager.I.Fire();

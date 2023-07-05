@@ -29,7 +29,6 @@ public class LaunchManager : Singleton<LaunchManager>
 
     //背景を起動
     void BackFire(){
-        Debug.Log(count.Value);
         if(fireworkDataBase.Count <= 0) return;
         launchers[count.Value -1 ].StartBackFireScheduler().Forget();
     }
@@ -46,7 +45,6 @@ public class LaunchManager : Singleton<LaunchManager>
         fireworkDataBase.Add(fireworkData);
         if(count.Value >= 5) return;
         count.Value = fireworkDataBase.Count /5 +1;
-        Debug.Log("追加");
         
     }
 }

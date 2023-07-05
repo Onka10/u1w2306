@@ -10,20 +10,28 @@ public class LaunchManager : Singleton<LaunchManager>
     // public List<FireWork> prefabs;
     public FrontLauncher frontLauncher;
     public List<BackLauncher> launchers;
-    List<FireworkData> fireworkDataBase;
+    public List<FireworkData> fireworkDataBase;
 
     public IObservable<Unit> G => _allKill;
     private readonly Subject<Unit> _allKill = new Subject<Unit>();
 
-
-
-    public float minDelay = 1f;  // ランダムな待機時間の最小値
-    public float maxDelay = 5f;  // ランダムな待機時間の最大値
+    private readonly ReactiveProperty<int> count = new ReactiveProperty<int>(0);
 
     private void Start()
     {
         fireworkDataBase = new List<FireworkData>();
-        StartBackFireScheduler().Forget();
+
+        //初手で走るが、ライブラリが0だから打ち上げた後に走る
+        count
+        .Subscribe(_ => BackFire())
+        .AddTo(this);
+    }
+
+    //背景を起動
+    void BackFire(){
+        Debug.Log(count.Value);
+        if(fireworkDataBase.Count <= 0) return;
+        launchers[count.Value -1 ].StartBackFireScheduler().Forget();
     }
 
     public void Fire(FireworkData fireworkData,FireWork prefab)
@@ -36,29 +44,9 @@ public class LaunchManager : Singleton<LaunchManager>
     //ライブラリ追加のタイミングをずらす
     public void AddBase(FireworkData fireworkData){
         fireworkDataBase.Add(fireworkData);
-    }
-
-    void BackFire(FireworkData fireworkData,FireWork prefab)
-    {
-        launchers[0].LaunchFirework(fireworkData, prefab);
-        SEManager.I.Fire();
-        ScoreManager.I.AddTotalScoreFromBack();
-    }
-
-    private async UniTask StartBackFireScheduler()
-    {
-        while (true)
-        {
-            // ランダムな秒数を待機
-            float delay = UnityEngine.Random.Range(minDelay, maxDelay);
-            await UniTask.Delay((int)(delay * 1000));
-
-            // fireworkDataBaseが空でない場合にBackFireを呼び出す
-            if (fireworkDataBase.Count > 0)
-            {
-                int index = UnityEngine.Random.Range(0,fireworkDataBase.Count);
-                BackFire(fireworkDataBase[index],FWSetManager.I.GetFireworkPrefabs(fireworkDataBase[index].FWtype));
-            }
-        }
+        if(count.Value >= 5) return;
+        count.Value = fireworkDataBase.Count /5 +1;
+        Debug.Log("追加");
+        
     }
 }
